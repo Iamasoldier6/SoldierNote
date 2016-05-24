@@ -10,7 +10,9 @@
         android:theme="@style/AppTheme">
 
         <!-- 启动页面 -->
-        <activity android:name=".activity.SplashActivity">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -20,7 +22,8 @@
 
         <activity
             android:name=".activity.MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.DesignDemo">
         </activity>
 
     </application>

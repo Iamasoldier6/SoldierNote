@@ -1,22 +1,28 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
 
+    <style name="Theme.DesignDemo" parent="Base.Theme.DesignDemo">
+    </style>
+
+    <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
         <!--toolbar 颜色-->
-        <item name="colorPrimary">#4876FF</item>
+        <item name="colorPrimary">#673AB7</item>
 
         <!--状态栏颜色-->
-        <item name="colorPrimaryDark">#3A5FCD</item>
+        <item name="colorPrimaryDark">#512DA8</item>
+
+        <item name="colorAccent">#FF4081</item>
 
         <!--窗口的背景颜色-->
-        <item name="android:windowBackground">@android:color/white</item>
-
-        <!--添加搜索-->
-        <item name="searchViewStyle">@style/MySearchView</item>
+        <item name="android:windowBackground">@color/window_background</item>
 
     </style>
 
-    <style name="MySearchView" parent="Widget.AppCompat.SearchView"/>
-
 </resources>
+
+
+
+
