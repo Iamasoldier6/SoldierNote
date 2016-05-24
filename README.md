@@ -5,7 +5,7 @@
 
 完成打开应用，显示启动页面，延迟两秒后，进入主页面功能；
 
-完成 ToolBar + DrawerLayout 效果，接着得加入 NavigationView ，尚未加入。
+完成《 Android 群英传》中 ToolBar + DrawerLayout 效果，后根据需求改成 NavigationView 效果，已完成。
 
 
 - 2016.05.23
