@@ -16,16 +16,16 @@ public class MainActivity extends ActionBarActivity {
 
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
-    private NavigationView mNavigationView; //
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mToolbar = (Toolbar) findViewById(R.id.id_toolbar);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.id_drawer_layout);
-        mNavigationView = (NavigationView) findViewById(R.id.id_nv_menu);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mNavigationView = (NavigationView) findViewById(R.id.nv_menu);
 
         /**
          * 标题文字须在 setSupportActionBar 之前
@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu, this adds items to the action bar if it is present
-        getMenuInflater().inflate(R.menu.menu_drawer, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 

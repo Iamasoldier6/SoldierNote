@@ -13,7 +13,7 @@ import com.iamasoldier6.soldiernote.R;
  */
 public class SplashActivity extends Activity {
 
-    private static final long DELAY_MILLIS = 2 * 1000;
+    private static final long DELAY_MILLIS = 1 * 1000; // 暂先改 1 秒
     private static final int GOTO_MAIN_ACTIVITY = 1;
 
     @Override
@@ -39,4 +39,5 @@ public class SplashActivity extends Activity {
             }
         }
     };
+
 }
