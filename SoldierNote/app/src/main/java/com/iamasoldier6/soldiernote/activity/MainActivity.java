@@ -16,7 +16,7 @@ public class MainActivity extends ActionBarActivity {
 
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
-    private NavigationView mNavigationView;
+    private NavigationView mNavigationView; //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
