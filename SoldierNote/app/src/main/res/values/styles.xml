@@ -1,28 +1,11 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="@style/BaseTheme">
     </style>
 
-    <style name="Theme.DesignDemo" parent="Base.Theme.DesignDemo">
-    </style>
-
-    <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--toolbar 颜色-->
-        <item name="colorPrimary">#673AB7</item>
-
-        <!--状态栏颜色-->
-        <item name="colorPrimaryDark">#512DA8</item>
-
-        <item name="colorAccent">#FF4081</item>
-
-        <!--窗口的背景颜色-->
-        <item name="android:windowBackground">@color/window_background</item>
-
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
 </resources>
-
-
-
-
