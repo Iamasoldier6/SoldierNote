@@ -5,11 +5,17 @@
         <item
             android:id="@+id/nav_note"
             android:checked="true"
-            android:title="Note" />
+            android:icon="@drawable/note"
+            android:title="便签"/>
+
+    </group>
+
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_picture"
             android:checked="true"
-            android:title="Picture" />
+            android:icon="@drawable/picture"
+            android:title="图片" />
 
     </group>
 
