@@ -1,10 +1,12 @@
 # SoldierNote
 ### 更新日志：
+- 2016.05.30
+
+停了几天，现初步完成调用 [Flickr](https://www.flickr.com) API 接口，以 RecylerView 形式显示图片功能，继续修改。
 
 - 2016.05.26
 
 完成添加数据库 database 。
-
 
 - 2016.05.25
 
@@ -17,7 +19,6 @@
 完成打开应用，显示启动页面，延迟两秒后，进入主页面功能；
 
 完成《 Android 群英传》中 ToolBar + DrawerLayout 效果，后根据需求改成 NavigationView 效果，已完成。
-
 
 - 2016.05.23
 
