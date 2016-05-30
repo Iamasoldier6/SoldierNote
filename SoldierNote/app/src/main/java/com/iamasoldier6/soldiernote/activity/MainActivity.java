@@ -1,5 +1,6 @@
 package com.iamasoldier6.soldiernote.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,14 +10,17 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.iamasoldier6.soldiernote.R;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
+    private Button mPicButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,9 @@ public class MainActivity extends ActionBarActivity {
         mToolbar.setLogo(R.drawable.edit);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mNavigationView = (NavigationView) findViewById(R.id.nv_menu);
+
+        mPicButton = (Button) findViewById(R.id.button_picture);
+        mPicButton.setOnClickListener(this);
 
         /**
          * 标题文字须在 setSupportActionBar 之前
@@ -68,6 +75,18 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.button_picture:
+                Intent intent = new Intent(MainActivity.this, PictureActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
     }
 
 }
