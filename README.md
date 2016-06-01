@@ -22,4 +22,4 @@
 
 - 2016.05.23
 
-打算模仿[ 魅族便签 ](http://www.coolapk.com/apk/com.meizu.notes)做出`搜杰便签`（SoldierNote），不过只是简易模仿，另加入调用接口以列表形式显示图片功能，完成初期准备工作。
+打算模仿[ 魅族便签 ](http://www.coolapk.com/apk/com.meizu.notes)做出`搜杰便签`（SoldierNote），不过只是简易模仿，另加入调用接口以 RecyclerView 形式显示图片功能，完成初期准备工作。
