@@ -1,8 +1,12 @@
 # SoldierNote
 ### 更新日志：
+- 2016.06.02
+
+解决了一波问题，初步完成具有相应基本功能的便签，仍然继续修改优化。
+
 - 2016.05.30
 
-因事暂停了几天，现初步完成调用 [Flickr](https://www.flickr.com) API 接口，以 RecylerView 形式显示图片功能，继续修改。
+因事暂停了几天，现初步完成调用 [Flickr](https://www.flickr.com) API 接口，以 RecylerView 形式显示图片功能(`须科学上网`)，继续修改。
 
 - 2016.05.26
 
