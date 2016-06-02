@@ -15,7 +15,7 @@
             android:id="@+id/nav_picture"
             android:checked="true"
             android:icon="@drawable/picture"
-            android:title="图片" />
+            android:title="图片"/>
 
     </group>
 

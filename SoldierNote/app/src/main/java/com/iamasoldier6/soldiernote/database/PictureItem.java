@@ -14,4 +14,5 @@ public class PictureItem {
     public void setImageUrl(String imageUrl) {
         this.mImageUrl = imageUrl;
     }
+
 }

@@ -12,7 +12,7 @@ import android.net.Uri;
  */
 public class NoteProvider extends ContentProvider {
 
-    private static final String AUTHORITIES = "com.iamasoldier6"; // 清单文件中的 authorities 参数
+    private static final String AUTHORITIES = "com.iamasoldier6"; //清单文件中的 authorities 参数
 
     private static final String PATH = "note"; //自定义
 
@@ -66,7 +66,7 @@ public class NoteProvider extends ContentProvider {
             case UriMatcher.NO_MATCH:
                 throw new IllegalArgumentException(uri.toString());
         }
-        getContext().getContentResolver().notifyChange(uri, null); // 通知数据改变
+        getContext().getContentResolver().notifyChange(uri, null); //通知数据改变
         return i;
     }
 
@@ -172,7 +172,7 @@ public class NoteProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException(uri.toString());
         }
-        getContext().getContentResolver().notifyChange(uri, null);      //通知数据改变
+        getContext().getContentResolver().notifyChange(uri, null); //通知数据改变
         return n;
     }
 

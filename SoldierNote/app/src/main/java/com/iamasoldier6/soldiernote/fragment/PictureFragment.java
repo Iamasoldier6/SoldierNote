@@ -1,11 +1,11 @@
-package com.iamasoldier6.soldiernote.activity;
+package com.iamasoldier6.soldiernote.fragment;
 
+import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,7 +34,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by Iamasoldier6 on 5/30/16.
  */
-public class PictureActivity extends AppCompatActivity {
+public class PictureFragment extends Fragment {
 
     private ExecutorService mExecutorService;
 
@@ -44,14 +44,21 @@ public class PictureActivity extends AppCompatActivity {
     private boolean mRecyclerViewIsIdle = true;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_picture);
+    }
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_picture, container, false);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL, false));
         mRecyclerViewAdapter = new RecyclerViewAdapter();
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 if (newState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
@@ -65,6 +72,7 @@ public class PictureActivity extends AppCompatActivity {
 
         mExecutorService = Executors.newFixedThreadPool(10);
         new DownloadImageURL().startDownloadImageURL();
+        return view;
     }
 
     public class DownloadImageThread implements Runnable {
@@ -116,13 +124,12 @@ public class PictureActivity extends AppCompatActivity {
             return mMyViewHolder;
         }
 
-
         @Override
         public void onBindViewHolder(MyViewHolder viewHolder, int i) {
             viewHolder.mImageView.setImageResource(R.drawable.default_picture);
             if (mRecyclerViewIsIdle) {
                 viewHolder.mImageView.setTag(mPictureItems.get(i).getImageUrl());
-                //将 HandlerThread 用线程池替代
+                //把HandlerThread用线程池替代
                 mExecutorService.execute(new DownloadImageThread(
                         mPictureItems.get(i).getImageUrl(), new Handler(), viewHolder.mImageView));
             }
@@ -186,6 +193,7 @@ public class PictureActivity extends AppCompatActivity {
                 pictureItem.setImageUrl((String) jsonArray.getJSONObject(i).get("url_s"));
                 data.add(pictureItem);
             }
+
             return data;
         }
 
@@ -220,3 +228,4 @@ public class PictureActivity extends AppCompatActivity {
     }
 
 }
+

@@ -13,11 +13,11 @@ import java.util.Date;
  */
 public class Note implements BaseColumns {
 
-    public static final String TABLE = "note"; // 表名
-    public static final String _TITLE = "title"; // 标题
-    public static final String _CONTENT = "content"; // 内容
-    public static final String _CREATE_TIME = "create_time"; // 创建时间
-    public static final String _MODIFY_TIME = "modify_time"; // 修改时间
+    public static final String TABLE = "note"; //表名
+    public static final String _TITLE = "title"; //标题
+    public static final String _CONTENT = "content"; //内容
+    public static final String _CREATE_TIME = "create_time"; //创建时间
+    public static final String _MODIFY_TIME = "modify_time"; //修改时间
     public static final String[] ALL = {_ID, _TITLE, _CONTENT, _CREATE_TIME, _MODIFY_TIME}; //全部字段
 
     /**

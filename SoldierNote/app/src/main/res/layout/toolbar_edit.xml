@@ -13,21 +13,21 @@
         android:id="@+id/button_complete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/complete"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/complete"/>
 
     <Button
         android:id="@+id/button_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/more"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:background="@drawable/more"/>
 
     <Button
         android:id="@+id/button_attach"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/attachment"
-        android:layout_toLeftOf="@id/button_more"/>
+        android:layout_toLeftOf="@id/button_more"
+        android:background="@drawable/attachment"/>
 
 </RelativeLayout>
