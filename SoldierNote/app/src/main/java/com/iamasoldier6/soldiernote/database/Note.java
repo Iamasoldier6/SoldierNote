@@ -8,17 +8,17 @@ import java.util.Date;
 
 /**
  * 创建数据库表 Note
- *
+ * <p/>
  * Created by Iamasoldier6 on 5/25/16.
  */
 public class Note implements BaseColumns {
 
-    public static final String TABLE = "note"; //表名
-    public static final String _TITLE = "title"; //标题
-    public static final String _CONTENT = "content"; //内容
-    public static final String _CREATE_TIME = "create_time"; //创建时间
-    public static final String _MODIFY_TIME = "modify_time"; //修改时间
-    public static final String[] ALL = {_ID, _TITLE, _CONTENT, _CREATE_TIME, _MODIFY_TIME}; //全部字段
+    public static final String TABLE = "note"; // 表名
+    public static final String _TITLE = "title"; // 标题
+    public static final String _CONTENT = "content"; // 内容
+    public static final String _CREATE_TIME = "create_time"; // 创建时间
+    public static final String _MODIFY_TIME = "modify_time"; // 修改时间
+    public static final String[] ALL = {_ID, _TITLE, _CONTENT, _CREATE_TIME, _MODIFY_TIME}; // 全部字段
 
     /**
      * 创建表语句

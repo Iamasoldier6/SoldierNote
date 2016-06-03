@@ -50,11 +50,11 @@ public class SureCircleView extends View {
             r = h / 5;
         }
         if (!isCheck) {
-            //未选择
+            // 未选择
             p.setStyle(Paint.Style.STROKE);
             canvas.drawCircle(w - r - 2, h / 2, r, p);
         } else {
-            //选择
+            // 选择
             p.setStyle(Paint.Style.FILL);
             canvas.drawCircle(w - r - 2, h / 2, r, p);
         }

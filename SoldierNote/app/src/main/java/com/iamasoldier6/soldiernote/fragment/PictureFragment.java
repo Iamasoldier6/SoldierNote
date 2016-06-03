@@ -129,7 +129,7 @@ public class PictureFragment extends Fragment {
             viewHolder.mImageView.setImageResource(R.drawable.default_picture);
             if (mRecyclerViewIsIdle) {
                 viewHolder.mImageView.setTag(mPictureItems.get(i).getImageUrl());
-                //把HandlerThread用线程池替代
+                // 把 HandlerThread 用线程池替代
                 mExecutorService.execute(new DownloadImageThread(
                         mPictureItems.get(i).getImageUrl(), new Handler(), viewHolder.mImageView));
             }

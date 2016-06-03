@@ -30,8 +30,8 @@ public class App extends Application {
         if (isFirst) {
             //初始化
             getSharedPreferences("soldiernote", MODE_PRIVATE).edit().putBoolean("isFirst", false).commit();
-            createReadme(); //创建说明书
-            importBackup(); //导入数据库
+            createReadme(); // 创建说明书
+            importBackup(); // 导入数据库
         }
     }
 
@@ -39,11 +39,11 @@ public class App extends Application {
      * 导入数据库
      */
     void importBackup() {
-        Log.d("debug", "从sd导入数据库");
+        Log.d("debug", "从 SD 导入数据库");
         File fileSd = new File(Environment.getExternalStorageDirectory() + "/" + Backup.BACKUP_PATH +
                 "/soldiernote.db");
         if (fileSd.exists()) {
-            //如果SD卡存在数据库，则导入外部数据库
+            // 如果 SD 卡存在数据库, 则导入外部数据库
             Backup.copyFile(fileSd, Backup.DB_PATH);
         } else {
             try {
@@ -51,7 +51,7 @@ public class App extends Application {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            //如果不存在外部数据库，则导入程序自带的数据库,并且备份一份到sd卡
+            // 如果不存在外部数据库, 则导入程序自带的数据库, 并且备份一份到 SD 卡
             try {
                 InputStream in = getAssets().open("soldiernote.db");
                 File dbFile = new File(Backup.DB_PATH);
@@ -63,8 +63,8 @@ public class App extends Application {
                 byte[] buf = new byte[1024 * 4];
                 int size;
                 while ((size = in.read(buf)) != -1) {
-                    out.write(buf, 0, size); //写到程序
-                    outToSd.write(buf, 0, size); //写到sd卡
+                    out.write(buf, 0, size); // 写到程序
+                    outToSd.write(buf, 0, size); // 写到 SD 卡
                 }
                 in.close();
                 out.close();
@@ -78,7 +78,7 @@ public class App extends Application {
      * 程序安装后创建说明书：便签使用说明.txt
      */
     void createReadme() {
-        Log.d("debug", "创建readme文件");
+        Log.d("debug", "创建 readme 文件");
         File folder = new File(Environment.getExternalStorageDirectory() + "/" + Backup.BACKUP_PATH);
         if (!folder.exists()) {
             folder.mkdir();

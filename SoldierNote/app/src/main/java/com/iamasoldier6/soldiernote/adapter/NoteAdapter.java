@@ -26,7 +26,7 @@ public class NoteAdapter extends SimpleCursorAdapter {
 
     public NoteAdapter(Context context, Cursor c) {
         super(context, R.layout.item_note, c, new String[]{Note._CONTENT, Note._CREATE_TIME},
-                new int[]{R.id.textView_content, R.id.textView_create_time},
+                new int[]{R.id.text_view_content, R.id.text_view_create_time},
                 CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/k.ttf");
     }
@@ -35,10 +35,10 @@ public class NoteAdapter extends SimpleCursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
         super.bindView(view, context, cursor);
 
-        //设置字体风格
-        ((TextView) view.findViewById(R.id.textView_content)).setTypeface(typeface);
+        // 设置字体风格
+        ((TextView) view.findViewById(R.id.text_view_content)).setTypeface(typeface);
 
-        TextView textView = (TextView) view.findViewById(R.id.textView_create_time);
+        TextView textView = (TextView) view.findViewById(R.id.text_view_create_time);
         SureCircleView sureCircleView = (SureCircleView) view.findViewById(R.id.sureCircleView);
 
         if (isLongPress) {
@@ -69,7 +69,7 @@ public class NoteAdapter extends SimpleCursorAdapter {
         if (!pressState) {
             data.removeAll(data);
         }
-        notifyDataSetChanged(); //通知数据集发生改变
+        notifyDataSetChanged(); // 通知数据集发生改变
     }
 
     /**

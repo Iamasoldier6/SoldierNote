@@ -12,9 +12,9 @@ import android.net.Uri;
  */
 public class NoteProvider extends ContentProvider {
 
-    private static final String AUTHORITIES = "com.iamasoldier6"; //清单文件中的 authorities 参数
+    private static final String AUTHORITIES = "com.iamasoldier6"; // 清单文件中的 authorities 参数
 
-    private static final String PATH = "note"; //自定义
+    private static final String PATH = "note"; // 自定义
 
     /**
      * URI 匹配
@@ -26,7 +26,7 @@ public class NoteProvider extends ContentProvider {
 
     static {
         /**
-         * 判断 uri 格式, 不匹配则返回 NO_MATCH(-1)
+         * 判断 URI 格式, 不匹配则返回 NO_MATCH(-1)
          */
         MATCHER.addURI(AUTHORITIES, "note", NOTE);
         MATCHER.addURI(AUTHORITIES, "note/#", NOTE_ID);
@@ -34,8 +34,8 @@ public class NoteProvider extends ContentProvider {
 
     /**
      * Note 实体的标识
-     * uri: content://com.example.iamasoldier6/note 整个 note
-     * uri: content://com.example.iamasoldier6/1 带参数
+     * Uri: content://com.example.iamasoldier6/note 整个 Note
+     * Uri: content://com.example.iamasoldier6/1 带参数
      */
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITIES + "/" + PATH);
 
@@ -66,7 +66,7 @@ public class NoteProvider extends ContentProvider {
             case UriMatcher.NO_MATCH:
                 throw new IllegalArgumentException(uri.toString());
         }
-        getContext().getContentResolver().notifyChange(uri, null); //通知数据改变
+        getContext().getContentResolver().notifyChange(uri, null); // 通知数据改变
         return i;
     }
 
@@ -87,7 +87,7 @@ public class NoteProvider extends ContentProvider {
      *
      * @param uri    资源标识
      * @param values 值（ORM）
-     * @return uri 保存成功, 则返回新数据的 uri ,否则返回空
+     * @return Uri 保存成功, 则返回新数据的 Uri ,否则返回空
      */
     @Override
     public Uri insert(Uri uri, ContentValues values) {
@@ -98,12 +98,12 @@ public class NoteProvider extends ContentProvider {
                 if (id == -1) {
                     return null;
                 }
-                newUri = Uri.withAppendedPath(uri, String.valueOf(id)); //追加 id ，返回插入的数据的 uri
+                newUri = Uri.withAppendedPath(uri, String.valueOf(id)); // 追加 id ，返回插入的数据的 Uri
                 break;
             default:
                 throw new IllegalArgumentException(uri.toString());
         }
-        getContext().getContentResolver().notifyChange(uri, null); //通知数据改变
+        getContext().getContentResolver().notifyChange(uri, null); // 通知数据改变
         return newUri;
     }
 
@@ -135,10 +135,10 @@ public class NoteProvider extends ContentProvider {
                         String[] selectionArgs, String sortOrder) {
         Cursor cursor = null;
         switch (MATCHER.match(uri)) {
-            case NOTE: //整体
+            case NOTE: // 整体
                 cursor = db.query(Note.TABLE, projection, selection, selectionArgs, null, sortOrder, null);
                 break;
-            case NOTE_ID: //个体
+            case NOTE_ID: // 个体
                 String id = uri.getLastPathSegment();
                 cursor = db.query(Note.TABLE, projection, "_id = ?", new String[]{id}, null, null, null);
                 break;
@@ -172,7 +172,7 @@ public class NoteProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException(uri.toString());
         }
-        getContext().getContentResolver().notifyChange(uri, null); //通知数据改变
+        getContext().getContentResolver().notifyChange(uri, null); // 通知数据改变
         return n;
     }
 

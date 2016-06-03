@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        //mToolbar.setLogo(R.drawable.add);
+//        mToolbar.setLogo(R.drawable.add);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mNavigationView = (NavigationView) findViewById(R.id.nv_menu);
 
@@ -96,10 +96,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             tintManager.setTintColor(Color.parseColor("#33CC33"));
         }
 
-        deleteView = (DeleteView) findViewById(R.id.deleteView);
-        deleteView.setContext(this); //使DeleteView获得活动引用
-        newNoteView = (NewNoteView) findViewById(R.id.newNoteView);
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
+        deleteView = (DeleteView) findViewById(R.id.delete_view);
+        deleteView.setContext(this); // 使 DeleteView 获得活动引用
+        newNoteView = (NewNoteView) findViewById(R.id.new_note_view);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linear_layout);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,13 +115,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-        listView = (ListView) findViewById(R.id.listView_note);
+        listView = (ListView) findViewById(R.id.list_view_note);
         cursor = getContentResolver().query(NoteProvider.CONTENT_URI, null, null, null, null);
         noteAdapter = new NoteAdapter(this, cursor);
         listView.setAdapter(noteAdapter);
-        listView.setVerticalScrollBarEnabled(false); //进度条隐藏
+        listView.setVerticalScrollBarEnabled(false); // 进度条隐藏
 
-        //点击列表项
+        // 点击列表项
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -136,16 +136,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             }
         });
 
-        //长按列表项
+        // 长按列表项
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("debug", "长按");
                 if (!isLongPress) {
                     isLongPress = true;
-                    //时间不可见,选择框可见
+                    // 时间不可见, 选择框可见
                     noteAdapter.setPressState(true);
-                    //添加按钮不可点击，删除按钮可见
+                    // 添加按钮不可点击, 删除按钮可见
                     newNoteView.setEnabled(false);
                     deleteView.setVisibility(View.VISIBLE);
                     new Thread() {
@@ -166,11 +166,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                                     e.printStackTrace();
                                 }
                             }
-                            if (deleteView.getY() + deleteView.getHeight() < newNoteView.getY() + newNoteView.getHeight()) {
+                            if (deleteView.getY() + deleteView.getHeight() < newNoteView.getY() +
+                                    newNoteView.getHeight()) {
                                 deleteView.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        deleteView.setY(deleteView.getY() + newNoteView.getY() + newNoteView.getHeight() - deleteView.getY() - deleteView.getHeight());
+                                        deleteView.setY(deleteView.getY() + newNoteView.getY() +
+                                                newNoteView.getHeight() - deleteView.getY() -
+                                                deleteView.getHeight());
                                     }
                                 });
                             }
@@ -194,7 +197,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (isLongPress) {
                 noteAdapter.setPressState(false);
-                isLongPress = false; //退出长按模式
+                isLongPress = false; // 退出长按模式
 
                 new Thread() {
                     @Override

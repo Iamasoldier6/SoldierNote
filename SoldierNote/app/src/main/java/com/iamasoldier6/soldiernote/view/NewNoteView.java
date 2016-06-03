@@ -12,11 +12,11 @@ import android.view.View;
  */
 public class NewNoteView extends View {
 
-    float h = 0; //视图高
-    float w = 0; //视图宽
-    Paint p; //画笔
+    float h = 0; // 视图高
+    float w = 0; // 视图宽
+    Paint p; // 画笔
 
-    Context context; //活动上下文
+    Context context; // 活动上下文
 
     public NewNoteView(Context context) {
         this(context, null);
@@ -42,7 +42,7 @@ public class NewNoteView extends View {
         p.setStyle(Paint.Style.STROKE);
         p.setColor(Color.rgb(0x80, 0x80, 0x80));
 
-        //画分割线
+        // 画分割线
         p.setStrokeWidth(1);
         canvas.drawLine(0, 0, w, 0, p);
     }

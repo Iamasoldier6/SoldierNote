@@ -26,9 +26,9 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
  */
 public class EditActivity extends AppCompatActivity {
 
-    EditTopView topView;
-    EditText editText;
-    Typeface typeface;
+    EditTopView mTopView;
+    EditText mEditText;
+    Typeface mTypeFace;
     long id;
 
     @Override
@@ -36,7 +36,7 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
-        typeface = Typeface.createFromAsset(getAssets(), "fonts/k.ttf");
+        mTypeFace = Typeface.createFromAsset(getAssets(), "fonts/k.ttf");
 
         /**
          * 设置状态栏背景色
@@ -59,30 +59,30 @@ public class EditActivity extends AppCompatActivity {
             tintManager.setTintColor(Color.parseColor("#33CC33"));
         }
 
-        topView = (EditTopView) findViewById(R.id.edit_top_view);
-        editText = (EditText) findViewById(R.id.editText);
-        editText.setTypeface(typeface);
+        mTopView = (EditTopView) findViewById(R.id.edit_top_view);
+        mEditText = (EditText) findViewById(R.id.edit_text);
+        mEditText.setTypeface(mTypeFace);
 
         id = getIntent().getLongExtra("id", -1);
-        topView.setText("添加便签");
+        mTopView.setText("添加");
         if (id != -1) {
             Cursor cursor = getContentResolver().query(NoteProvider.CONTENT_URI,
                     null,
                     "_id = ?",
                     new String[]{String.valueOf(id)},
                     null);
-            //导航栏标题改变
+            // 导航栏标题改变
             int indexCreateTime = cursor.getColumnIndex(Note._CREATE_TIME);
             cursor.moveToFirst();
             long time = cursor.getLong(indexCreateTime);
             cursor.moveToFirst();
-            topView.setText(String.valueOf(DateFormat.format("MM/dd", time)));
+            mTopView.setText(String.valueOf(DateFormat.format("MM/dd", time)));
 
-            //编辑框显示内容
+            // 编辑框显示内容
             int indexContent = cursor.getColumnIndex(Note._CONTENT);
             cursor.moveToFirst();
             String content = cursor.getString(indexContent);
-            editText.setText(content);
+            mEditText.setText(content);
         }
     }
 
@@ -95,10 +95,10 @@ public class EditActivity extends AppCompatActivity {
     }
 
     public void insertToDb() {
-        String content = String.valueOf(editText.getText());
-        //插入数据库
+        String content = String.valueOf(mEditText.getText());
+        // 插入数据库
         Log.d("debug", content);
-        if (editText.getText().length() > 0) {
+        if (mEditText.getText().length() > 0) {
             if (id == -1) {
                 getContentResolver().insert(NoteProvider.CONTENT_URI,
                         new Note(content).getValues());
@@ -111,7 +111,7 @@ public class EditActivity extends AppCompatActivity {
                 );
             }
         } else {
-            //输入为空时,有id则从数据库删除
+            // 输入为空时,有 id 则从数据库删除
             if (id != -1) {
                 Log.d("debug", "输入为空");
                 getContentResolver().delete(NoteProvider.CONTENT_URI,
@@ -119,7 +119,7 @@ public class EditActivity extends AppCompatActivity {
                         new String[]{String.valueOf(id)});
             }
         }
-        //备份数据库
+        // 备份数据库
         new BackupTask().execute();
     }
 

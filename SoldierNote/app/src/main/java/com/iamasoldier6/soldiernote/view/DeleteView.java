@@ -115,7 +115,7 @@ public class DeleteView extends View {
                             @Override
                             public void onClick(View v) {
                                 Toast.makeText(context, "已撤销删除", Toast.LENGTH_SHORT).show();
-                                //撤销删除：从备份数据库找回
+                                // 撤销删除：从备份数据库找回
                                 new AsyncTask<Void, Void, Void>() {
 
                                     @Override
@@ -131,16 +131,16 @@ public class DeleteView extends View {
                                     @Override
                                     protected void onPostExecute(Void aVoid) {
                                         super.onPostExecute(aVoid);
-                                        context.cursor.requery(); //重新查询
+                                        context.cursor.requery(); // 重新查询
                                     }
                                 }.execute();
                             }
                         })
                         .show();
-                context.cursor.requery(); //重新查询
+                context.cursor.requery(); // 重新查询
             }
 
-            //退出长按模式
+            // 退出长按模式
             context.noteAdapter.setPressState(false);
             context.isLongPress = false;
         }

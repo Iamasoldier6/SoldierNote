@@ -4,24 +4,24 @@
                 android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView_content"
+        android:id="@+id/text_view_content"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/textView_create_time"
-        android:layout_toStartOf="@+id/textView_create_time"
+        android:layout_toLeftOf="@+id/text_view_create_time"
+        android:layout_toStartOf="@+id/text_view_create_time"
         android:ellipsize="end"
         android:gravity="left|center"
         android:singleLine="true"
         android:text="内容缩略图"/>
 
     <TextView
-        android:id="@+id/textView_create_time"
+        android:id="@+id/text_view_create_time"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignBottom="@+id/textView_content"
+        android:layout_alignBottom="@+id/text_view_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:gravity="right|center"
@@ -33,7 +33,7 @@
         android:id="@+id/sureCircleView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignBottom="@+id/textView_content"
+        android:layout_alignBottom="@+id/text_view_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:visibility="invisible"/>

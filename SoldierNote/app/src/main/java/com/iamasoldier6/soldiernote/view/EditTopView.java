@@ -45,12 +45,12 @@ public class EditTopView extends View {
             h = getHeight();
             padding = h / 5;
         }
-        //画指向箭头
+        // 画指向箭头
         p.setStrokeWidth(3);
         canvas.drawLine(padding, h / 2, padding * 2, h / 2 - padding, p);
         canvas.drawLine(padding, h / 2, padding * 2, h / 2 + padding, p);
 
-        //画文本
+        // 画文本
         p.setTextSize(h / 3);
         p.setStrokeWidth(1);
         if (null != text) {
