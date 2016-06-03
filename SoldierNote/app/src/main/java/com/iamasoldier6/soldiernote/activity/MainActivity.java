@@ -19,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.iamasoldier6.soldiernote.R;
@@ -53,7 +54,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setLogo(R.drawable.add);
+        //mToolbar.setLogo(R.drawable.add);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mNavigationView = (NavigationView) findViewById(R.id.nv_menu);
 
@@ -98,6 +99,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         deleteView = (DeleteView) findViewById(R.id.deleteView);
         deleteView.setContext(this); //使DeleteView获得活动引用
         newNoteView = (NewNoteView) findViewById(R.id.newNoteView);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentAdd = new Intent(MainActivity.this, EditActivity.class);
+                startActivity(intentAdd);
+            }
+        });
     }
 
     /**
