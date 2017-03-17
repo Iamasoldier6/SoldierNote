@@ -1,4 +1,4 @@
-# SoldierNote
+# [Deprecated] SoldierNote
 ### 更新日志：
 - 2016.06.03
 
